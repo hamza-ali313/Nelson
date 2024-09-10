@@ -1,0 +1,537 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+<style type="text/css">
+<!--
+tr th {
+background-color:#000;
+}
+table {
+    line-height:0.5;
+}
+tr th strong{
+color:#fff;
+}
+.style1 {
+	font-size: 18px;
+	font-weight: bold;
+	position:relative;
+	top:25px;
+}
+.style4 {font-size: 8px; line-height:0; white-space: nowrap;}
+.style6 {font-size: 11px; color:#fff; background-color:#000; }
+tbody {}
+
+.check-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: 1px solid #000;
+}
+.status {
+    display:inline-flex;
+    align-items:center;
+    gap:12;
+}
+.status p:last-child {
+    border: 1px solid #000;
+    height: 25px;
+    width: 32px;
+}
+.check-box p:last-child {
+    border: 1px solid #000;
+    height: 25px;
+    width: 32px;
+}
+
+.check-box p {
+    margin: 0;
+    padding: 2px 0 3px 7px;
+}
+.box {
+ border:1px solid #000;
+ height:20px;
+ width:20px;
+ background-color:#009933;
+ display:block
+}
+table,td,th {
+ border-collapse: collapse;
+  padding:0
+    margin:0
+}
+td {
+    padding:0
+    margin:0
+    line-height:0.2;
+}
+
+@media print {
+    .page-break {         
+        page-break-before: always;
+        page-break-after: avoid;
+        page-break-inside: avoid;
+    }
+    table {
+        /*page-break-before: avoid;*/
+        /*page-break-after: avoid;*/
+        /*page-break-inside: avoid;*/
+    }
+}
+
+.check-box p {
+    font-size:12px;
+}
+.style8 {
+	color: #fff !important;
+	font-weight: bold;
+	background-color:#000;
+	display:inline;
+}
+.style9 {
+	font-size: 12px;
+	font-weight: bold;
+}
+.style10 {
+	color: #000000;
+	font-weight: bold;
+	font-size: 12px;
+}
+.style11 {
+	font-size: 10px;
+	font-weight: bold;
+}
+.style14 {
+	color: #000000;
+	font-size: 10px;
+}
+.style15 {
+	color: #000000;
+	font-weight: bold;
+	font-size: 18px;
+}
+</style>
+</head>
+
+<body>
+<table width="100%" border="1" style="border:1px solid #000" border-collapse>
+  <tr>
+    <td width="20%"><img src="http://223.123.37.162/private/files/navbar_logo.png" alt="" name="navbar_logo"
+    width="200" height="80" id="navbar_logo" style="object-fit:contain"/></td>
+    <td " width="50%" ><div align="center" class="style1"> Job Advertisement  Approval Form</div></td>
+    <td width="30%">
+    <table width="100%" border="1">
+      <tr>
+        <td colspan="2" class="style6" align="center" style='color:#fff;'>QUALITY RECORDS/FORMS</td>
+        </tr>
+      <tr>
+        <td width="48%" class="style4">Doc. Level: IV</td>
+        <td width="48%" class="style4">Doc. Version: I</td>
+      </tr>
+      <tr>
+        <td height="4" style=" white-space:no-wrap" class="style4">Doc. No: NPL-HRD-F36</td>
+        <td style=" white-space:no-wrap" class="style4">w.e.f: 23rd May-2022</td>
+      </tr>
+    </table>
+    </td>
+  </tr>
+</table>
+<p align="center">&nbsp; </p>
+<p align="center">(To  be completed by Candidate) </p>
+<table width="100%" style="line-height:0.9" >
+  <tr>
+    <td width="81%" height="87"><ul>
+      <li><span dir="ltr"> </span><strong>I  am declaring that all the information that I am filling in this form is true.</strong></li>
+      <li><span dir="ltr"> </span><strong>If  any information in this form that I have filled is found to be FALSE or  FRAUDELENT,<br></strong><strong>then the company can  take action against me at any time.</strong></li>
+      </ul>
+    </td>
+    <td width="19%" ><p style='border:1px solid #000; height:130px; width:130px; text-align:center; position: relative; left:30%'>
+	<span style ='position:absolute; top:40px; left: 28px;'; left:30%'>
+	Recent<br />
+    Photograph
+	</span></p></td>
+  </tr>
+</table>
+<table width="93%" border="0">
+  <tr>
+    <td width="16%"><strong>Position Applied for:</strong></td>
+    <td width="21%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.designation}}</td>
+    <td width="9%"><strong>  Department:</strong></td>
+    <td width="26%" style='border-bottom:1px solid #000'>{{doc.department}}</td>
+    <td width="4%"><strong>  C/O:</strong></td>
+    <td width="24%" style='border-bottom:1px solid #000'>&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><span class="style8">APPLICANT  GENERAL INFORMATION</span></p>
+<p>&nbsp;</p>
+<table width="98%" border="0">
+  <tr>
+    <td width="18%"><strong>Name (In capital Letter): </strong></td>
+    <td width="31%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.applicant_name}}</td>
+    <td width="12%"><strong> Father&rsquo;s Name: </strong></td>
+    <td width="39%" style='border-bottom:1px solid #000'>{{doc.designation}}</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="98%" border="0">
+  <tr>
+    <td width="6%"><strong>Address</strong><strong>:</strong></td>
+    <td width="94%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.address}}</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="98%" border="0">
+  <tr>
+    <td width="11%"><strong>CNIC No:</strong></td>
+    <td width="18%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.cnic_no}}</td>
+    <td width="10%"><strong>Res.  Phone:</strong></td>
+    <td width="22%" style='border-bottom:1px solid #000'>{{doc.res_phone}}</td>
+	 <td width="14%"><strong>Mobile No:</strong></td>
+	     <td width="25%" style='border-bottom:1px solid #000'>{{doc.phone_number}}</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="98%" border="0">
+  <tr>
+    <td width="11%"><strong>Date  of Birth:</strong></td>
+    <td width="15%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.date_of_birth}}</td>
+    <td width="11%"><strong>Place of Birth:</strong></td>
+    <td width="15%" style='border-bottom:1px solid #000'>{{doc.place_of_birth}}</td>
+    <td width="10%"><strong>Nationality: </strong></td>
+    <td width="15%" style='border-bottom:1px solid #000'>{{doc.nationality}}</td>
+	    <td width="7%"><strong>Language</strong></td>
+		    <td width="16%" style='border-bottom:1px solid #000'>{{doc.language}}</td>
+
+
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="98%" border="0">
+  <tr>
+    <td width="6%"><p><strong>Religion:</strong></p>
+    </td>
+    <td width="13%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.religion}}</td>
+	<td width="29%"><p><strong>Family Background:  Father Occupation:</strong></p>
+    </td>
+	    <td width="21%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.father_occupation}}</td>
+	<td width="12%"><p><strong>No of siblings:</strong></p>
+    <td width="19%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.no_of_siblings}}</td>
+    <td width="0%"></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="98%" border="0">
+  <tr>
+    <td width="11%"><strong>Marital Status:</strong></td>
+    <td width="14%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.marital_status}}</td>
+    <td width="12%"><strong>No of Children :</strong></td>
+    <td width="15%" style='border-bottom:1px solid #000'>{{doc.no_of_children}}</td>
+    <td width="13%"><strong>Blood Group: </strong></td>
+    <td width="14%" style='border-bottom:1px solid #000'>{{doc.blood_group}}</td>
+    <td width="8%"><strong>Residence:</strong></td>
+    <td width="13%" style='border-bottom:1px solid #000'>{{doc.residence}}</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p style='display:inline-block'>
+
+<p ><strong class="style8">ACADEMICS QUALIFICATION</strong></p>
+<p>&nbsp;</p>
+<table border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="252"><p align="center"><strong>Educational Institute Name</strong></p></th>
+    <th width="245"><p align="center"><strong>Degree/Certificate/Course</strong></p></th>
+    <th width="241"><p align="center"><strong>Completion Year</strong></p></th>
+    <th width="416"><p align="center"><strong>Result</strong></p></th>
+  </tr>
+  {% for aq in doc.table_aq %}
+  <tr>
+    <td width="252" valign="top"><p><strong>{{aq.ein}}</strong></p></td>
+    <td width="245" valign="top"><p><strong>{{aq.dcc}}</strong></p></td>
+    <td width="241" valign="top"><p><strong>{{aq.end_year}}</strong></p></td>
+    <td width="416" valign="top"><p><strong>{{aq.result}}</strong></p></td>
+  </tr>
+  {% endfor %}
+</table>
+<p>&nbsp;</p>
+<p ><strong class="style8">EXPERIENCE</strong></p>
+<p>&nbsp;</p>
+<table border="1" cellspacing="0" cellpadding="0">
+  <tr>
+    <th width="282" height="13"><div align="center"><strong>Organization/Company Name</strong> </div></th>
+    <th width="124"><p align="center"><strong>Designation</strong></p></th>
+    <th width="241"><p align="center"><strong>Job duration</strong></p></th>
+    <th width="215"><p align="center"><strong>Job Responsibilities</strong></p></th>
+    <th width="292"><p align="center"><strong>Reason for Discontinue</strong></p></th>
+  </tr>
+    {% for exp in doc.table_ect %}
+  <tr>
+    <td width="282" valign="top"><p><strong>{{exp.company_name}}</strong></p></td>
+    <td width="124" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="241" valign="top"><p><strong>{{exp.job_duration}}</strong></p></td>
+    <td width="215" valign="top"><p><strong>{{exp.job_responsibilities}}</strong></p></td>
+    <td width="292" valign="top"><p><strong>{{exp.reason_for_discontinue}}</strong></p></td>
+  </tr
+  {% endfor %}
+></table>
+<p>&nbsp;</p>
+<div style='display:flex; gap:20px;'>
+<div>
+<p ><strong class="style8">COMPUTER SKILLS</strong></p>
+<p>&nbsp;</p>
+<table border="1" cellspacing="0" cellpadding="0" width="522">
+  <tr>
+    <th width="147"><div align="center"><strong>Course Name</strong> </div></th>
+    <th width="83"><p align="center"><strong>Avg.</strong></p></th>
+    <th width="89"><p align="center"><strong>Good</strong></p></th>
+    <th width="193"><p align="center"><strong>Excellent</strong></p></th>
+</tr>
+    {% for csct in doc.table_csct %}
+  <tr>
+    <td width="147" valign="top"><p><strong>{{csct.course_name}} </strong></p></td>
+	{% if csct.avg %}
+	<td width="83" valign="top"><p class='tick'><strong></strong></p></td>
+	{%else%}
+    <td width="83" valign="top"><p><strong>&nbsp;</strong></p></td>
+	{% endif %}
+	
+		{% if csct.good %}
+	<td width="83" valign="top"><p class='tick'><strong></strong></p></td>
+	{%else%}
+    <td width="83" valign="top"><p ><strong>&nbsp;</strong></p></td>
+	{% endif %}
+		{% if csct.excellent %}
+	<td width="83" valign="top"><p class='tick'><strong>&nbsp;</strong></p></td>
+	{%else%}
+    <td width="83" valign="top"><p><strong>&nbsp;</strong></p></td>
+	{% endif %}
+  </tr>
+  {% endfor %}
+</table>
+<p>&nbsp;</p>
+</div>
+<div>
+<p ><strong class="style8">LANGUAGE SKILLS</strong></p>
+<p>&nbsp;</p>
+<table border="1" cellspacing="0" cellpadding="0" width="521">
+  <tr>
+    <th width="149"><div align="center"><strong>Language</strong></div></th>
+    <th width="79"><p align="center"><strong>Avg.</strong></p></th>
+    <th width="93"><p align="center"><strong>Good</strong></p></th>
+    <th width="190"><p align="center"><strong>Excellent</strong></p></th>
+</tr>
+  <tr>
+    <td width="149" valign="top"><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong></p></td>
+    <td width="79" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="93" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="190" valign="top"><p><strong>&nbsp;</strong></p></td>
+  </tr>
+   <tr>
+    <td width="147" valign="top"><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong></p></td>
+    <td width="83" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="89" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="193" valign="top"><p><strong>&nbsp;</strong></p></td>
+  </tr>
+   <tr>
+    <td width="147" valign="top"><p><strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </strong></p></td>
+    <td width="83" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="89" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="193" valign="top"><p><strong>&nbsp;</strong></p></td>
+  </tr>
+</table>
+</div>
+</div>
+
+<div class='page-break'></div>
+<p align="center">&nbsp;</p>
+<p align="center">&nbsp;</p>
+<p align="center"><strong><u>CURRENT SALARY STRUCTURE DETAILS REQUIRED</u></strong></p>
+<p align="left">&nbsp;</p>
+<table width="88%" border="0">
+  <tr>
+    <td width="16%" height="22"><strong>Name :</strong></td>
+    <td width="20%" bordercolor="#000000" style='border-bottom:1px solid #000'>{{doc.name1}}</td>
+    <td width="18%"><strong>&nbsp; &nbsp;  Organization Name:</strong></td>
+    <td width="15%" style='border-bottom:1px solid #000'>{{doc.organization_name}}</td>
+    <td width="9%"><strong>&nbsp; &nbsp;Address:</strong></td>
+    <td width="22%" style='border-bottom:1px solid #000'>{{doc.address_two}}</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><strong>Job Entitlement in current Organization: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (Permanent,  Contractual or Daily Wages)</strong></p>
+<p><strong>&nbsp;</strong></p>
+<table width="61%" border="0">
+  <tr>
+    <td width="26%" height="23"><strong>Basic Salary:</strong></td>
+    <td width="4%"><strong>Rs.</strong></td>
+    <td width="27%" style='border-bottom:1px solid #000'>{{doc.basic_salary}}</td>
+    <td width="43%"><strong>/-&nbsp; (Per Month)</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="61%" border="0">
+  <tr>
+    <td width="26%" height="23"><strong>Other Salary:</strong></td>
+    <td width="4%"><strong>Rs.</strong></td>
+    <td width="27%" style='border-bottom:1px solid #000'>{{doc.other_salary}}</td>
+    <td width="43%"><strong>/-&nbsp; (Per Month)</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="61%" border="0">
+  <tr>
+    <td width="26%" height="23"><strong>Net Salary: :</strong></td>
+    <td width="4%"><strong>Rs.</strong></td>
+    <td width="27%" style='border-bottom:1px solid #000'>{{doc.net_salary}}</td>
+    <td width="43%"><strong>/-&nbsp; (Per Month)</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="61%" border="0">
+  <tr>
+    <td width="26%" height="23"><strong>Fuel &amp;  Maintenance:</strong></td>
+    <td width="4%"><strong>Rs.</strong></td>
+    <td width="28%" style='border-bottom:1px solid #000'>{{doc.fm}}</td>
+    <td width="42%"><strong>/-&nbsp; (Per Month)</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="61%" border="0">
+  <tr>
+    <td width="26%" height="23"><strong>Gross Salary:</strong></td>
+    <td width="4%"><strong>Rs.</strong></td>
+    <td width="28%" style='border-bottom:1px solid #000'>{{doc.gross_salary}}</td>
+    <td width="42%"><strong>/-&nbsp; (Per Month)</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="61%" border="0">
+  <tr>
+    <td width="26%" height="23"><strong>Mobile Allowance:</strong></td>
+    <td width="4%"><strong>Rs.</strong></td>
+    <td width="28%" style='border-bottom:1px solid #000'>{{doc.mobile_allowance}}</td>
+    <td width="42%"><strong>/-&nbsp; (Per Month)</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="92%" border="0">
+  <tr>
+    <td width="17%" height="22"><strong>Incentive per month:</strong></td>
+    <td width="3%"><strong>Rs.</strong></td>
+    <td width="19%" style='border-bottom:1px solid #000'>{{doc.incentive_per_month}}</td>
+    <td width="25%"><strong>/- (Average) Total  Target in Gallon</strong></td>
+	    <td width="19%" style='border-bottom:1px solid #000''>{{doc.ttg}}</td>
+		    <td width="17%"><strong>Per Qtr.</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p><strong>Vehicle Available Own  / Company (Company Minted / On Loan) </strong></p>
+<p align="center" class="style15"><u>Other Benefits Details</u></p>
+<p align="center" class="style9">&nbsp;</p>
+<table width="58%" border="0">
+  <tr>
+    <td width="74%" height="23"><strong>Annual Bonus / As Per Perf Bonus:</strong></td>
+    <td width="25%" style='border-bottom:1px solid #000'>{{doc.ab_appb}}</td>
+	<td width="1%"><strong>.</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="91%" border="0">
+  <tr>
+    <td width="47%" height="23"><strong>Medical Facilities  (Self / With Family):</strong></td>
+    <td width="17%" style='border-bottom:1px solid #000'>{{doc.mfsf}}</td>
+	<td width="36%"><strong>.</strong> (Only Emergency, Admission & OPD)</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="58%" border="0">
+  <tr>
+    <td width="71%" height="23"><strong>Life Coverage (Self):</strong></td>
+    <td width="23%" style='border-bottom:1px solid #000'>{{doc.life_coverage}}</td>
+    <td width="1%">&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="58%" border="0">
+  <tr>
+    <td width="74%" height="23"><strong>Leave Encashment  Policy</strong><strong>:</strong></td>
+    <td width="25%" style='border-bottom:1px solid #000'>{{doc.lep}}</td>
+    <td width="1%"><strong>.</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="98%" border="0">
+  <tr>
+    <td width="45%" height="23"><strong>Gratuity / P.F Policy:</strong></td>
+    <td width="15%" style='border-bottom:1px solid #000'>{{doc.gratuity}}</td>
+    <td width="31%"><strong>. (If PF Policy Monthly  Deduction Rs.</strong></td>
+	<td width="7%" style='border-bottom:1px solid #000'>{{doc.pfd}}</td>
+	<td width="2%"><strong>)</strong></td>
+
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="88%" border="0">
+  <tr>
+    <td width="49%" height="23"><strong>Working Days: </strong></td>
+    <td width="17%" style='border-bottom:1px solid #000'>{{doc.working_days}}</td>
+    <td width="14%"><strong>.  Duty Timings:</strong></td>
+    <td width="15%" style='border-bottom:1px solid #000'>{{doc.duty_timings}}</td>
+    <td width="5%"><strong>.</strong></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="90%" border="0">
+  <tr>
+    <td width="24%" height="23"><span class=""><strong>Your current Gross  Salary Rs.</strong></span></td>
+    <td width="20%" style='border-bottom:1px solid #000'>{{doc.cur_salary}}</td>
+    <td width="38%"><strong>including all  monetary benefits (Take Home Amount)</strong></td>
+    <td width="18%" style='border-bottom:1px solid #000'>{{doc.monetary}}</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="90%" border="0">
+  <tr>
+    <td width="23%" height="23"><span class=""><strong>Your Expected Salary  Rs.</strong></span></td>
+    <td width="21%" style='border-bottom:1px solid #000'>{{doc.expected_salary}}</td>
+    <td width="34%"><strong>including all  monetary benefits (Negotiable) </strong></td>
+    <td width="22%" style='border-bottom:1px solid #000'>{{doc.monetary_benefits}}</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="90%" border="0">
+  <tr>
+    <td width="23%" height="23"><span class="">&nbsp;<strong>Applicant Signature:</strong></span></td>
+    <td width="22%" style='border-bottom:1px solid #000'>&nbsp;</td>
+    <td width="23%">&nbsp;</td>
+	<td width="11%">&nbsp;<strong>Date: </strong>&nbsp;&nbsp;</td>
+    <td width="21%" style='border-bottom:1px solid #000'>&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="41%" border="0">
+  <tr>
+    <td width="50%" height="26"><span class="">&nbsp;<strong>Name:</strong></span></td>
+    <td width="50%" style='border-bottom:1px solid #000'>&nbsp;</td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p align="center" class="style9">&nbsp;</p>
+<p><strong>&nbsp;&nbsp;</strong></p>
+<p align="center">&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</strong>
+</p>
+</body>
+</html>
