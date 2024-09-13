@@ -147,11 +147,18 @@ td {
       <li><span dir="ltr"> </span><strong>If  any information in this form that I have filled is found to be FALSE or  FRAUDELENT,<br></strong><strong>then the company can  take action against me at any time.</strong></li>
       </ul>
     </td>
-    <td width="19%" ><p style='border:1px solid #000; height:130px; width:130px; text-align:center; position: relative; left:30%'>
-	<span style ='position:absolute; top:40px; left: 28px;'; left:30%'>
-	Recent<br />
-    Photograph
-	</span></p></td>
+        <td width="19%">
+    <p style="border: 1px solid #000; height: 130px; width: 130px; text-align: center; position: relative;">
+        {% if doc.profile %}
+            <img src="{{ doc.profile }}" style="height: 100%; width: 100%; object-fit: cover;" alt='Img'/>
+        {% else %}
+        <span style="position: absolute; top: 40px; left: 28px;">
+            Recent<br />
+            Photograph
+        </span>
+           {% endif %}
+    </p>
+</td>
   </tr>
 </table>
 <table width="93%" border="0">
@@ -247,12 +254,22 @@ td {
     <th width="241"><p align="center"><strong>Completion Year</strong></p></th>
     <th width="416"><p align="center"><strong>Result</strong></p></th>
   </tr>
-  {% for aq in doc.table_aq %}
+  {% set row_count = doc.table_aq|length %}
+  {% set total_rows = 6 %}
+
+  {% for i in range(total_rows) %}
   <tr>
-    <td width="252" valign="top"><p><strong>{{aq.ein}}</strong></p></td>
-    <td width="245" valign="top"><p><strong>{{aq.dcc}}</strong></p></td>
-    <td width="241" valign="top"><p><strong>{{aq.end_year}}</strong></p></td>
-    <td width="416" valign="top"><p><strong>{{aq.result}}</strong></p></td>
+    {% if i < row_count %}
+    <td width="252" valign="top"><p><strong>{{doc.table_aq[i].ein}}</strong></p></td>
+    <td width="245" valign="top"><p><strong>{{doc.table_aq[i].dcc}}</strong></p></td>
+    <td width="241" valign="top"><p><strong>{{doc.table_aq[i].end_year}}</strong></p></td>
+    <td width="416" valign="top"><p><strong>{{doc.table_aq[i].result}}</strong></p></td>
+    {% else %}
+    <td width="252" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="245" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="241" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="416" valign="top"><p><strong>&nbsp;</strong></p></td>
+    {% endif %}
   </tr>
   {% endfor %}
 </table>
@@ -267,13 +284,24 @@ td {
     <th width="215"><p align="center"><strong>Job Responsibilities</strong></p></th>
     <th width="292"><p align="center"><strong>Reason for Discontinue</strong></p></th>
   </tr>
-    {% for exp in doc.table_ect %}
+  {% set exp_count = doc.table_ect|length %}
+  {% set exp_rows = 5 %}
+  
+  {%for i in range(exp_rows)%}
   <tr>
-    <td width="282" valign="top"><p><strong>{{exp.company_name}}</strong></p></td>
+  {% if i < exp_count %}
+    <td width="282" valign="top"><p><strong>{{doc.table_ect[i].company_name}}</strong></p></td>
     <td width="124" valign="top"><p><strong>&nbsp;</strong></p></td>
-    <td width="241" valign="top"><p><strong>{{exp.job_duration}}</strong></p></td>
-    <td width="215" valign="top"><p><strong>{{exp.job_responsibilities}}</strong></p></td>
-    <td width="292" valign="top"><p><strong>{{exp.reason_for_discontinue}}</strong></p></td>
+    <td width="241" valign="top"><p><strong>{{doc.table_ect[i].job_duration}}</strong></p></td>
+    <td width="215" valign="top"><p><strong>{{doc.table_ect[i].job_responsibilities}}</strong></p></td>
+    <td width="292" valign="top"><p><strong>{{doc.table_ect[i].reason_for_discontinue}}</strong></p></td>
+   {% else %}
+     <td width="252" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="245" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="241" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="416" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="416" valign="top"><p><strong>&nbsp;</strong></p></td>
+    {% endif %}
   </tr
   {% endfor %}
 ></table>
@@ -289,25 +317,36 @@ td {
     <th width="89"><p align="center"><strong>Good</strong></p></th>
     <th width="193"><p align="center"><strong>Excellent</strong></p></th>
 </tr>
-    {% for csct in doc.table_csct %}
+{% set cs_count = doc.table_csct|length %}
+  {% set cs_rows = 3 %}
+  
+  {% for i in range(cs_rows) %}
   <tr>
-    <td width="147" valign="top"><p><strong>{{csct.course_name}} </strong></p></td>
-	{% if csct.avg %}
-	<td width="83" valign="top"><p class='tick'><strong></strong></p></td>
+  {% if i < cs_count %}
+    <td width="170" valign="top"><p><strong>{{doc.table_csct[i].course_name}} </strong></p></td>
+	{% if doc.table_csct[i].avg %}
+	<td width="75" valign="top"><p class='tick'><strong></strong></p></td>
 	{%else%}
-    <td width="83" valign="top"><p><strong>&nbsp;</strong></p></td>
+    <td width="75"
+     valign="top"><p><strong>&nbsp;</strong></p></td>
+	              {% endif %}
+	
+	{% if doc.table_csct[i].good %}
+	<td width="75" valign="top"><p class='tick'><strong></strong></p></td>
+	{%else%}
+    <td width="75" valign="top"><p ><strong>&nbsp;</strong></p></td>
 	{% endif %}
 	
-		{% if csct.good %}
-	<td width="83" valign="top"><p class='tick'><strong></strong></p></td>
+	{% if doc.table_csct[i].excellent %}
+	<td width="75" valign="top"><p class='tick'><strong>&nbsp;</strong></p></td>
 	{%else%}
-    <td width="83" valign="top"><p ><strong>&nbsp;</strong></p></td>
+    <td width="75" valign="top"><p><strong>&nbsp;</strong></p></td>
 	{% endif %}
-		{% if csct.excellent %}
-	<td width="83" valign="top"><p class='tick'><strong>&nbsp;</strong></p></td>
-	{%else%}
-    <td width="83" valign="top"><p><strong>&nbsp;</strong></p></td>
-	{% endif %}
+    {% else %}	
+        <td width="75" valign="top"><p><strong>&nbsp;</strong></p></td>
+        <td width="75" valign="top"><p><strong>&nbsp;</strong></p></td>
+        <td width="75" valign="top"><p><strong>&nbsp;</strong></p></td>
+    {% endif %}    
   </tr>
   {% endfor %}
 </table>
@@ -344,7 +383,6 @@ td {
 </table>
 </div>
 </div>
-
 <div class='page-break'></div>
 <p align="center">&nbsp;</p>
 <p align="center">&nbsp;</p>
@@ -476,10 +514,10 @@ td {
 <p>&nbsp;</p>
 <table width="88%" border="0">
   <tr>
-    <td width="49%" height="23"><strong>Working Days: </strong></td>
+    <td width="45%" height="23"><strong>Working Days: </strong></td>
     <td width="17%" style='border-bottom:1px solid #000'>{{doc.working_days}}</td>
     <td width="14%"><strong>.  Duty Timings:</strong></td>
-    <td width="15%" style='border-bottom:1px solid #000'>{{doc.duty_timings}}</td>
+    <td width="19%" style='border-bottom:1px solid #000'>{{doc.duty_timings}}</td>
     <td width="5%"><strong>.</strong></td>
   </tr>
 </table>
