@@ -1,0 +1,487 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Untitled Document</title>
+
+
+<style>
+
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+        position:relative;
+    }
+
+    table {
+        width: 100%;
+        page-break-inside: avoid;
+        page-break-after: avoid;
+        page-break-before: avoid;
+        line-height:13px;
+    }
+
+    footer {
+        position: relative;
+        bottom: 0;
+        /*page-break-before: avoid;*/
+        page-break-after: avoid;
+    }
+    @page {
+        size: landscape;
+        margin: 1cm;
+    }
+}
+
+
+h1,h2,h3,h4,h5,h6,p,td {
+    font-family: sans-serif;
+}
+p,td  {
+    font-size:12px;
+}
+.title {
+position:relative;
+margin:0 0 10px 0
+}
+.pg {
+    position: absolute;
+    right: 0;
+    top: -15px;
+}
+.pg span{
+    border: 1px solid #000;
+    border-radius: 50%;
+    display: inline-flex;
+    font-size: 33px;
+    height: 50px;
+    width: 50px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+ul.in-tb li  {
+ border-right: 1px solid #000
+}
+ul.in-tb {
+display:flex;
+justify-content:style
+}
+ul li {
+list-style-type:none;
+}
+</style>
+</head>
+
+<body>
+<div align="center" class='title'>
+  <h1><strong>PAY SLIP</strong></h1>
+  <div class="pg">
+<!--<span>1</span>-->
+  </div>
+</div>
+
+
+<table width="100%" border="1">
+  <tr>
+    <td width="18%" height="29"><strong>Employee Name</strong></td>
+    <td width="9%">{{doc.employee_code}}</td>
+    <td width="16%">{{doc.employee_name}}</td>
+    <td width="14%"  rowspan="4" align='center'>
+        <img src={{doc.image}} width='120px' height='120px'/>
+    </td>
+    <td width="12%"><strong>Pay Slip No.</strong></td>
+    <td width="13%">{{doc.name}}</td>
+    <td align='center' width="4%"><strong>Month</strong></td>
+    <td width="14%">{{doc.month}}-{{doc.year}}</td>
+  </tr>
+  <tr>
+    <td><strong>Department </strong></td>
+    <td colspan="2">{{doc.department}}</td>
+    <td ><strong>Period From</strong></td>
+    <td >{{doc.get_formatted('start_date')}}</td>
+    <td align="center"><strong>To</strong></td>
+    <td >{{doc.get_formatted('end_date')}}</td>
+  </tr>
+  <tr>
+    <td><strong>Designation</strong></td>
+    <td colspan="2">{{doc.designation}}</td>
+    <td><strong>CNIC #</strong></td>
+    <td colspan="3">{{doc.cnic}}</td>
+  </tr>
+  <tr>
+    <td><strong>Paid By</strong> </td>
+    <td colspan="2"></td>
+    <td><strong>A/C #</strong></td>
+    <td colspan="3"></td>
+  </tr>
+</table>
+<p>&nbsp;</p>
+<table width="100%">
+  <tr>
+    <td width="34%">
+	<table width="100%" border="1">
+  <tr>
+    <td colspan='3' align="center" style='background: #e0e0e0;';'><strong>Salary With Allowances </strong></td>
+  </tr>
+  <tr>
+    <td width="41%"><strong>BASIC SALARY</strong></td>
+    <td align='end' width="29%">{{"%.2f" |format(doc.salarys) }}</td>
+   <td align='end' width="30%">{{ "%.2f"|format(doc.salarys / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr>
+    <td><strong>HOUSE RENT</strong></td>
+    <td align='end'>{{"%.2f" | format(doc.house_rent)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.house_rent / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr>
+    <td><strong>CONVEYANCE </strong></td>
+    <td align='end'>{{"%.2f" | format(doc.convence)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.convence / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr>
+    <td><strong>UTILITY</strong></td>
+    <td align='end'>{{"%.2f" | format(doc.utility)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.utility / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr>
+    <td><strong>MEDICAL</strong></td>
+    <td align='end'>{{"%.2f" | format(doc.medical)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.medical / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr style='background: #e0e0e0;'>
+    <td><strong>Net Salary </strong></td>
+    <td align='end'>{{"%.2f" | format(doc.net_salary)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.net_salary / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr>
+    <td><strong>MISC</strong></td>
+    <td align='end'>{{"%.2f" | format(doc.misc)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.misc / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr>
+    <td><strong>DRESSING</strong></td>
+    <td align='end'>{{"%.2f" | format(doc.dressing)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.dressing / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr>
+    <td><strong>FUEL &amp; MAINT.</strong></td>
+    <td align='end'>{{"%.2f" | format(doc.custom_fuel_maintenance)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.dressing / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr>
+    <td><strong>Barkat A/C</strong></td>
+    <td align='end'>{{"%.2f" | format(doc.custom_barkat_ac)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.custom_barkat_ac / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+  <tr style='background: #e0e0e0;'>
+    <td><strong>Salary Scale</strong></td>
+    <td align='end'>{{"%.2f" | format(doc.salary_scale)}}</td>
+    <td align='end'>{{ "%.2f"|format(doc.salary_scale / doc.total_month_days * doc.payment_days) }}</td>
+  </tr>
+</table>	</td>
+    <td width="35%"><table width="100%" border="1" >
+      <tr>
+        <td width="16%" rowspan="2" align="center"><strong>Actual  Days</strong></td>
+        <td width="21%" rowspan="2" align="center"><strong>Working  Days</strong></td>
+        <td colspan="3" align="center"><strong>Leaves</strong></td>
+        <td width="21%" rowspan="2" align="center"><strong>Total  Days</strong></td>
+      </tr>
+      <tr>
+        <td width="13%"  align="center"><strong>CL</strong></td>
+        <td width="14%" align="center"><strong>EL</strong></td>
+        <td width="15%" align="center"><strong>SL</strong></td>
+      </tr>
+      <tr>
+        <td align="center">{{doc.total_month_days}}</td>
+        <td align="center">{{doc.total_working_days}}</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">&nbsp;</td>
+        <td align="center">{{doc.payment_days}}</td>
+      </tr>
+    </table>
+     <table width="100%" border="1" style='margin-top:9px'>
+        <tr style='background: #e0e0e0;'>
+          <td colspan="2" align="center"><strong>Deductions</strong></td>
+          {% set less_deduction = 0 %}
+        </tr>
+        <tr>
+          <td width="61%" >
+          <strong style='display:flex; justify-content:space-between'>Late (Minutes)
+          <span>{{doc.late_plus_early_hours_}}</span></strong></td>
+          <td width="39%" align='end'>
+          {% set total_amount = [] %}
+            {% for i in doc.deductions %}
+                {% if "Late" in i.salary_component %}
+                    {% set _ = total_amount.append(i.amount) %}  
+                {% endif %}
+             {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+              {% set less_deduction = less_deduction + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Advance</strong></td>
+          <td align='end'>
+          {% set total_amount = [] %}
+            {% for i in doc.deductions %}
+                {% if i.salary_component == "Advance" %}
+                    {% set _ = total_amount.append(i.amount) %}
+                {% endif %}
+             {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set less_deduction = less_deduction + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Loan</strong></td>
+          <td align='end'>
+          {% set total_amount = [] %}
+            {% for i in doc.deductions %}
+                {% if i.salary_component == "Loan" %}
+                    {% set _ = total_amount.append(i.amount) %}
+                {% endif %}
+             {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set less_deduction = less_deduction + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Provident Fund </strong></td>
+          <td align='end'>
+          {% set total_amount = [] %}
+            {% for i in doc.deductions %}
+                {% if i.salary_component == "Provident Fund" %}
+                    {% set _ = total_amount.append(i.amount) %}
+                {% endif %}
+             {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set less_deduction = less_deduction + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Others</strong></td>
+          <td align='end'>
+          {% set total_amount = [] %}
+            {% for i in doc.deductions %}
+                {% if i.salary_component == "Others" %}
+                    {% set _ = total_amount.append(i.amount) %}
+                {% endif %}
+             {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set less_deduction = less_deduction + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>E.O.B.I</strong></td>
+          <td align='end'>
+          {% set total_amount = [] %}
+            {% for i in doc.deductions %}
+                {% if i.salary_component == "E.O.B.I" %}
+                    {% set _ = total_amount.append(i.amount) %}
+                {% endif %}
+             {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set less_deduction = less_deduction + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>SESSI</strong></td>
+            <td align='end'>
+             {% set total_amount = [] %}
+            {% for i in doc.deductions %}
+                {% if i.salary_component == "SESSI" %}
+                    {% set _ = total_amount.append(i.amount) %}
+                {% endif %}
+             {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set less_deduction = less_deduction + (total_amount | sum) %}
+            </td>
+        </tr>
+        <tr>
+          <td><strong>Income Tax</strong></td>
+        <td align='end'>
+        {% set total_amount = [] %}
+            {% for i in doc.deductions %}
+                {% if "Income Tax Slab" in i.salary_component %}
+                    {% set _ = total_amount.append(i.amount) %}
+                {% endif %}
+             {% endfor %}
+            {{"%.2f" | format(total_amount | sum) }}
+            {% set less_deduction = less_deduction + (total_amount | sum) %}
+        </td>
+        </tr>
+    </table>
+      <table width="100%" border="0">
+        <tr>
+          <td width="21%"><strong>In  Words :</strong></td>
+          {% set net_sal = 0 %}
+          <td width="79%" style='border-bottom:1px solid #000'>{{frappe.utils.money_in_words(net_sal)}}</td>
+        </tr>
+      </table>
+    <p>&nbsp;</p></td>
+    <td width="31%">
+	<table width="100%" border="1">
+        <tr style='background: #e0e0e0;'>
+          <td colspan="2" align="center"><strong>Additional Allowance </strong></td>
+          {% set add_allowance = 0 %}
+        </tr>
+        <tr>
+          <td width="61%"><strong style='display:flex; justify-content:space-between;'>O-T in Minutes <span>{{doc.approved_over_time}}</span>
+          </strong></td>
+          <td width="39%" align='end'>
+           {% set total_amount = [] %}
+                {% for i in earnings %}
+                    {% if i.salary_component == 'Overtime' %}
+                        {% set _ = total_amount.append(i.amount) %}
+                    {% endif %}
+                {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set add_allowance = add_allowance + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Att. Allowance</strong> </td>
+          <td align='end'>
+            {% set total_amount = [] %}
+                {% for i in earnings %}
+                    {% if i.salary_component == 'Att. Allowance' %}
+                        {% set _ = total_amount.append(i.amount) %}
+                    {% endif %}
+                {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set add_allowance = add_allowance + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Punctulity Allowance</strong></td>
+          <td align='end'>
+             {% set total_amount = [] %}
+                {% for i in earnings %}
+                    {% if i.salary_component == 'Punctulity Allowance' %}
+                        {% set _ = total_amount.append(i.amount) %}
+                    {% endif %}
+                {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set add_allowance = add_allowance + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong style='display:flex; justify-content:space-between'>Extra Work Days  <span>57</span></strong></td>
+          <td align='end'>
+          {% set total_amount = [] %}
+                {% for i in earnings %}
+                    {% if i.salary_component == 'Extra Work Days' %}
+                        {% set _ = total_amount.append(i.amount) %}
+                    {% endif %}
+                {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set add_allowance = add_allowance + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td><strong>Fuel Allowance</strong></td>
+          <td align='end'>
+          {% set total_amount = [] %}
+                {% for i in earnings %}
+                    {% if i.salary_component == 'Fuel Allowance' %}
+                        {% set _ = total_amount.append(i.amount) %}
+                    {% endif %}
+                {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set add_allowance = add_allowance + (total_amount | sum) %}
+            </td>
+        </tr>
+        <tr>
+          <td><strong>Arrers</strong> </td>
+          <td align='end'>
+          {% set total_amount = [] %}
+                {% for i in earnings %}
+                    {% if i.salary_component == 'Arrers' %}
+                        {% set _ = total_amount.append(i.amount) %}
+                    {% endif %}
+                {% endfor %}
+            {{ "%.2f" | format(total_amount | sum) }}
+            {% set add_allowance = add_allowance + (total_amount | sum) %}
+          </td>
+        </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td>&nbsp;</td>
+        </tr>
+      </table>
+	<table width="100%" border="0" style='margin-top:9px'>
+      <tr >
+        <td width="63%" style='border-top:1px solid #000'><strong>Total Salary</strong></td>
+        <td width="5%" align="center" style='border-top:1px solid #000'><strong>:</strong></td>
+        <td width="32%" align="end" style='border-top:1px solid #000'>{{"%.2f" | format(doc.salary_scale)}}</td>
+      </tr>
+      <tr>
+        <td><strong>Add : Allowance </strong></td>
+        <td align="center"><strong>:</strong></td>
+        <td align="end">{{"%.2f" | format(add_allowance)}}</td>
+      </tr>
+      <tr style='border-top:1px solid #000'>
+        <td><strong>Gross Salary </strong></td>
+        {% set gross_sal = doc.salary_scale + add_allowance %}
+        <td align="center"><strong>:</strong></td>
+        <td align="end">{{"%.2f" | format(gross_sal)}}</td>
+      </tr>
+      <tr>
+        <td><strong>Less : Deduction</strong></td>
+        <td align="center"><strong>:</strong></td>
+        <td align="end">{{"%.2f" | format(less_deduction)}}</td>
+      </tr>
+      <tr style='border-top:1px solid #000;border-bottom:1px solid #000'>
+        <td height="23"><strong>Net Salary</strong></td>
+        {% set net_sal = gross_sal - less_deduction %}
+        <td align="center"><strong>:</strong></td>
+        <td align='end'>{{"%.2f" | format(net_sal)}}</td>
+      </tr>
+    </table>	
+<table border="1"  font-family: Arial, sans-serif;" style='margin-top:9px'>
+        <tr>
+            <td width="154" ><strong>Bank Transfer</strong></td>
+            <td align='end' width="131"><strong>{{"%.2f" | format(doc.bank_transfer)}}</strong></td>
+        </tr>
+        <tr>
+            <td><strong>Cash Payable</strong></td>
+            <td align='end'><strong>{{"%.2f" | format(doc.cash_payable)}}</strong></td>
+        </tr>
+    </table>
+	</td>
+  </tr>
+</table>
+
+
+
+<footer>
+<table width="70%" border="0">
+  <tr>
+    <td width="22%" style='border-bottom:1px solid #000'>&nbsp;</td>
+    <td width="17%">&nbsp;</td>
+    <td width="28%" style='border-bottom:1px solid #000'>&nbsp;</td>
+    <td width="33%">&nbsp;</td>
+  </tr>
+  <tr>
+  
+    <td align='center'><strong>Paid By</strong></td>
+    <td>&nbsp;</td>
+    <td align='center'><strong>Receiver Signature</strong></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<p><strong>* This is an auto generated report and does not require any signature</strong></p>
+<p>&nbsp;</p>
+</footer>
+
+
+<p>&nbsp;</p>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+</body>
+</html>
