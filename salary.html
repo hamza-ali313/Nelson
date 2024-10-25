@@ -19,18 +19,18 @@
         page-break-inside: avoid;
         page-break-after: avoid;
         page-break-before: avoid;
-        line-height:13px;
+        line-height:10px;
     }
 
     footer {
         position: relative;
         bottom: 0;
-        /*page-break-before: avoid;*/
+        page-break-before: avoid;
         page-break-after: avoid;
     }
     @page {
         size: landscape;
-        margin: 1cm;
+        /*margin: 1cm;*/
     }
 }
 
@@ -84,7 +84,7 @@ list-style-type:none;
 </div>
 
 
-<table width="100%" border="1">
+<table width="100%" border="1" style='line-height:13px'>
   <tr>
     <td width="18%" height="29"><strong>Employee Name</strong></td>
     <td width="9%">{{doc.employee_code}}</td>
@@ -181,7 +181,7 @@ list-style-type:none;
     <td align='end'>{{"%.2f" | format(doc.salary_scale)}}</td>
     <td align='end'>{{ "%.2f"|format(doc.salary_scale / doc.total_month_days * doc.payment_days) }}</td>
   </tr>
-</table>	</td>
+</table style='line-height:16px'>	</td>
     <td width="35%"><table width="100%" border="1" >
       <tr>
         <td width="16%" rowspan="2" align="center"><strong>Actual  Days</strong></td>
@@ -317,9 +317,9 @@ list-style-type:none;
     </table>
       <table width="100%" border="0">
         <tr>
-          <td width="21%"><strong>In  Words :</strong></td>
+          <td width="21%">&nbsp;</td>
           {% set net_sal = 0 %}
-          <td width="79%" style='border-bottom:1px solid #000'>{{frappe.utils.money_in_words(net_sal)}}</td>
+          <td width="79%" >&nbsp;</td>
         </tr>
       </table>
     <p>&nbsp;</p></td>
@@ -393,7 +393,7 @@ list-style-type:none;
                 {% endfor %}
             {{ "%.2f" | format(total_amount | sum) }}
             {% set add_allowance = add_allowance + (total_amount | sum) %}
-            </td>
+          </td>
         </tr>
         <tr>
           <td><strong>Arrers</strong> </td>
@@ -437,12 +437,13 @@ list-style-type:none;
       </tr>
       <tr style='border-top:1px solid #000;border-bottom:1px solid #000'>
         <td height="23"><strong>Net Salary</strong></td>
-        {% set net_sal = gross_sal - less_deduction %}
+        {% set net_sal = gross_sal - less_deduction %}												
         <td align="center"><strong>:</strong></td>
         <td align='end'>{{"%.2f" | format(net_sal)}}</td>
       </tr>
-    </table>	
-<table border="1"  font-family: Arial, sans-serif;" style='margin-top:9px'>
+    </table>
+					   
+	<table border="1"  font-family: Arial, sans-serif;" style='margin-top:9px'>
         <tr>
             <td width="154" ><strong>Bank Transfer</strong></td>
             <td align='end' width="131"><strong>{{"%.2f" | format(doc.bank_transfer)}}</strong></td>
@@ -450,24 +451,27 @@ list-style-type:none;
         <tr>
             <td><strong>Cash Payable</strong></td>
             <td align='end'><strong>{{"%.2f" | format(doc.cash_payable)}}</strong></td>
-        </tr>
+        </tr> 
+	
     </table>
-	</td>
-  </tr>
+	
 </table>
 
 
 
 <footer>
 <table width="70%" border="0">
-  <tr>
+  <tr style='margin-bottom:10px'>
+        <td colspan="3" height="23"><strong>In Words</strong>&nbsp;<u>{{frappe.utils.money_in_words(net_sal)}}</u></td>
+        {% set net_sal = gross_sal - less_deduction %}												
+  </tr>
+  <tr style=''>
     <td width="22%" style='border-bottom:1px solid #000'>&nbsp;</td>
     <td width="17%">&nbsp;</td>
     <td width="28%" style='border-bottom:1px solid #000'>&nbsp;</td>
     <td width="33%">&nbsp;</td>
   </tr>
   <tr>
-  
     <td align='center'><strong>Paid By</strong></td>
     <td>&nbsp;</td>
     <td align='center'><strong>Receiver Signature</strong></td>
