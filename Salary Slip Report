@@ -1,0 +1,38 @@
+SELECT 
+    ss.employee AS `Emp. Code`,
+    ss.employee_name AS `Name`,
+    ss.designation AS `Designation`,
+    ss.department AS `Department`,
+    ss.salarys AS `Basic Salary`,
+    ss.medical AS `Medical Allowance`,
+    ss.convence + ss.house_rent + ss.utility AS `Other Allowances`,
+    ss.monthly_salary AS `Gross Salary`,
+    (CASE WHEN se.salary_component = 'Arrears' THEN se.amount ELSE 0 END) AS `Arrears`,
+    (CASE WHEN se.salary_component = 'Others' THEN se.amount ELSE 0 END) AS `Others`,
+    (CASE WHEN se.salary_component = 'Arrears' THEN se.amount ELSE 0 END) + (CASE WHEN se.salary_component = 'Others' THEN se.amount ELSE 0 END) + ss.monthly_salary AS `Total Salary`,
+    (CASE WHEN sd.salary_component = 'Provident Fund' THEN sd.amount ELSE 0 END) AS `P.F`,
+    (CASE WHEN sd.salary_component = 'Income Tax' THEN se.amount ELSE 0 END) + 
+    (CASE WHEN sd.salary_component = 'Income Tax Slab 1' THEN se.amount ELSE 0 END) +
+    (CASE WHEN sd.salary_component = 'Income Tax Slab 2' THEN se.amount ELSE 0 END) +  
+    (CASE WHEN sd.salary_component = 'Income Tax Slab 3' THEN se.amount ELSE 0 END) +
+    (CASE WHEN sd.salary_component = 'Income Tax Slab 4' THEN se.amount ELSE 0 END) +
+    (CASE WHEN sd.salary_component = 'Income Tax Slab 5' THEN se.amount ELSE 0 END)
+    AS `I.Tax`,
+    (CASE WHEN sd.salary_component = 'EOBI' THEN sd.amount ELSE 0 END) AS `EOBI`,
+    (CASE WHEN sd.salary_component = 'Absent Deduction' THEN sd.amount ELSE 0 END) AS `LWOP`,
+    (CASE WHEN se.salary_component = 'Loan' THEN se.amount ELSE 0 END) AS `Loan`,
+    (CASE WHEN se.salary_component = 'Advance' THEN se.amount ELSE 0 END) AS `Advances`,
+    (CASE WHEN se.salary_component = 'Others Deduction' THEN se.amount ELSE 0 END) AS `Other`,
+    ss.total_deduction AS `Total Deduction`,
+    ss.net_salary AS `Net Salary`
+FROM
+`tabSalary Slip` ss
+LEFT JOIN 
+`tabSalary Detail` se 
+ON ss.name = se.parent
+AND se.parentfield = 'earnings'
+LEFT JOIN
+`tabSalary Detail` sd 
+ON ss.name = sd.parent
+AND sd.parentfield = 'deductions'
+
